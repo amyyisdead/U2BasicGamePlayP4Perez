@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
@@ -17,7 +18,18 @@ public class DetectCollisions : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+        if (other.CompareTag("player")) { }
+        {
+            Debug.Log("Game Over");
+            Destroy(gameObject);
+        }
+        else
+        {
+            destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+        
     }
+        
+    
 }
